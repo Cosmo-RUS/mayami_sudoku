@@ -284,4 +284,6 @@ function init() {
   if (!loadSaved()) startNew('medium');
 }
 init();
+// El service worker solo existe en http(s); al abrir el HTML como archivo local se omite.
+if ('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('sw.js').catch(() => {});
 })();
