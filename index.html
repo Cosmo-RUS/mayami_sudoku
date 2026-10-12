@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Sudoku</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <header>
+    <button id="menuBtn">☰ Menú</button>
+    <div class="meta"><span id="info">Sudoku</span><span id="errs"></span></div>
+    <button id="timer" aria-label="Pausar o reanudar">00:00</button>
+  </header>
+  <main class="layout">
+    <div class="boardwrap">
+      <div id="board" role="grid" aria-label="Tablero de Sudoku"></div>
+      <button id="resume" hidden>En pausa<br><small>Toca para continuar</small></button>
+    </div>
+    <section class="panel">
+      <div id="banner" hidden></div>
+      <div class="tools">
+        <button id="undo">Deshacer</button>
+        <button id="redo">Rehacer</button>
+        <button id="notes" aria-pressed="false">Notas</button>
+        <button id="hint">Pista</button>
+      </div>
+      <div class="pad" id="pad"></div>
+    </section>
+  </main>
+</div>
+
+<dialog id="menu">
+  <h2>Menú</h2>
+  <h3>Nueva partida</h3>
+  <div class="row3">
+    <button data-diff="easy">Fácil</button>
+    <button data-diff="medium">Media</button>
+    <button data-diff="hard">Difícil</button>
+  </div>
+  <div id="confirm" hidden>
+    <p>Se descartará la partida en curso. ¿Continuar?</p>
+    <div class="row2"><button id="yes">Sí, empezar</button><button id="no">Cancelar</button></div>
+  </div>
+  <h3>Opciones</h3>
+  <div class="row2"><button id="checkBtn"></button><button id="themeBtn"></button></div>
+  <h3>Estadísticas</h3>
+  <table id="stats"></table>
+  <p class="note">Los niveles son una aproximación basada en el número de pistas, no una clasificación profesional. El mejor tiempo solo cuenta si no usaste pistas.</p>
+  <button id="closeMenu">Cerrar</button>
+</dialog>
+<script src="script.js" defer></script>
+</body>
+</html>
